@@ -4,6 +4,7 @@ import CartTotal from '../components/CartTotal';
 import { assets } from '../assets/assets';
 import { ShopContext } from '../context/ShopContext';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const PlaceOrder = () => {
 
@@ -75,7 +76,8 @@ const PlaceOrder = () => {
       }
 
     } catch (error) {
-
+      console.log(error);
+      toast.error(error.message)
     }
 
   }
