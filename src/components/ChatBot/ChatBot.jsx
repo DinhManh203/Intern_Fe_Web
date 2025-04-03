@@ -57,7 +57,7 @@ const ChatBot = () => {
     }, [chatHistory]);
 
     return (
-        <div className='fixed bottom-0 right-0 m-4 w-80'>
+        <div className='fixed bottom-0 right-0 m-4 w-80  z-[9999]'>
             <div className={`bg-white shadow-lg rounded-lg overflow-hidden float-end transition-all duration-300 ${isOpen ? "h-[62vh] w-[30vw]" : "h-[50px]"}`}>
                 {/* Chatbot header */}
                 <div className='flex items-center justify-between p-3 bg-gray-200 cursor-pointer' onClick={toggleChat}>

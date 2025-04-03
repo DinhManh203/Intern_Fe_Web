@@ -3,9 +3,14 @@ import Title from "../components/Title";
 import { assets } from '../assets/assets';
 import NewsLetterBox from '../components/NewsletterBox';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { FacebookShareButton, PinterestShareButton } from "react-share";
+import FacebookOutlined from "@mui/icons-material/FacebookOutlined";
+import Pinterest from "@mui/icons-material/Pinterest";
+import Instagram from "@mui/icons-material/Instagram";
 import "leaflet/dist/leaflet.css";
 
 const About = () => {
+  const currentPageUrl = window.location.href;
   const positionHN = [21.0055, 105.8461];
 
   return (
@@ -30,6 +35,29 @@ const About = () => {
             Our mission is to deliver innovative solutions that enhance everyday life.
             We are committed to integrity, quality, and continuous improvement, ensuring that our customers always receive the best.
           </p>
+          <div>
+            <b>Help us</b>
+            <div>
+              <FacebookShareButton url={currentPageUrl}>
+                <button className="bg-blue-500 text-center text-white p-1 rounded-md mt-4">
+                  <FacebookOutlined />
+                </button>
+              </FacebookShareButton>
+
+              <PinterestShareButton url={currentPageUrl}>
+                <button className="bg-red-500 text-center text-white p-1 rounded-md mt-4 ml-2">
+                  <Pinterest />
+                </button>
+              </PinterestShareButton>
+
+              <button
+                className="bg-pink-500 text-center text-white p-1 rounded-md mt-4 ml-2"
+                url={currentPageUrl}
+              >
+                <Instagram />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

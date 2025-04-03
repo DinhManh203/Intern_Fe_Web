@@ -5,9 +5,9 @@ import { assets } from '../assets/assets';
 import RelatedProduct from '../components/RelatedProduct';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cmt from "../components/Comments/Cmt"
 
 const Product = () => {
-
   const { productId } = useParams();
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(false);
@@ -25,23 +25,6 @@ const Product = () => {
     })
 
   }
-
-  // const handleAddToCart = () => {
-  //   if (!size) {
-  //     toast.error('Vui lòng chọn size trước khi thêm vào giỏ hàng!', {
-  //       position: 'top-right',
-  //       autoClose: 2000,
-  //       style: { width: '450px' }
-  //     });
-  //     return;
-  //   }
-  //   addToCart(productData._id, size);
-  //   toast.success('Sản phẩm đã được thêm vào giỏ hàng!', {
-  //     position: 'top-right',
-  //     autoClose: 2000,
-  //     style: { width: '450px' }
-  //   });
-  // };
 
   useEffect(() => {
     fetchProductData();
@@ -78,6 +61,7 @@ const Product = () => {
           </div>
           <p className='mt-5 text-3xl font-medium'>{currency}{productData.price}</p>
           <p className='mt-5 text-gray-500 md:w-4/5'>{productData.description}</p>
+            
           <div className='flex flex-col gap-4 my-8'>
             <p>Select Size</p>
             <div className='flex gap-2'>
@@ -95,6 +79,7 @@ const Product = () => {
           </button>
 
           <hr className='mt-8 sm:w-4/5' />
+
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p>✅ 100% Original product</p>
             <p>💰 Cash on delivery available</p>
@@ -110,8 +95,7 @@ const Product = () => {
           <p className='border px-5 py-3 text-sm'>Reviews (122)</p>
         </div>
         <div className='flex flex-col gap-4 border px-6 py-6 text-sm text-gray-500'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo enim, in consequuntur amet voluptatum quaerat, suscipit molestiae delectus dolore doloribus nihil maiores iusto quia inventore ab nobis numquam dolorum animi?</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum voluptatem et odit esse odio tenetur accusantium, veritatis sunt ad, doloremque placeat eum iusto in quidem magnam sapiente eius sequi autem!</p>
+        <Cmt />
         </div>
       </div>
 
@@ -120,7 +104,6 @@ const Product = () => {
       {productData.category && (
         <RelatedProduct category={productData.category} subCategory={productData.subCategory} />
       )}
-
 
     </div>
   ) :
