@@ -1,25 +1,38 @@
 import React from 'react';
 import Title from "../components/Title";
 import { assets } from '../assets/assets';
-import NewsLetterBox from '../components/NewsletterBox'
+import NewsLetterBox from '../components/NewsletterBox';
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
 
 const About = () => {
+  const positionHN = [21.0055, 105.8461];
+
   return (
     <div>
-
-      <div className='text-2xl text-center pt-8 border-t'>
+      <div className='text-2xl pt-8 border-t'>
         <Title text1={'ABOUT'} text2={'US'} />
       </div>
 
       <div className='my-10 flex flex-col md:flex-row gap-16'>
-        <img src={assets.about_img} alt="" className='w-full md:max-w-[450px]' />
+        <img src={assets.about_img} alt="About Us" className='w-full md:max-w-[450px]' />
         <div className='flex flex-col justify-center gap-6 md:w-2/4 text-gray-600'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa hic earum tenetur quas cum corporis ex qui fugit explicabo ipsum, debitis quod harum rerum a enim dolorum itaque officia quos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi iure possimus similique expedita exercitationem pariatur sed minima porro cupiditate nobis quibusdam non facilis nam, natus repellat perferendis suscipit dolore est?</p>
+          <p>
+            We are dedicated to providing high-quality products and services that meet the evolving needs of our customers.
+            Our team works tirelessly to ensure excellence in every aspect of our business.
+          </p>
+          <p>
+            With a customer-first approach, we strive to create seamless and enjoyable experiences.
+            Whether it’s through our products, services, or support, we aim to exceed expectations and build lasting relationships.
+          </p>
           <b className='text-gray-800'>Our Mission</b>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste quas saepe sunt soluta. Placeat, provident dolore minus officiis natus blanditiis id eos nulla a maxime rerum cupiditate delectus consequatur officia!</p>
+          <p>
+            Our mission is to deliver innovative solutions that enhance everyday life.
+            We are committed to integrity, quality, and continuous improvement, ensuring that our customers always receive the best.
+          </p>
         </div>
       </div>
+
 
       <div className='text-xl py-4'>
         <Title text1={'WHY'} text2={'CHOOSE US'} />
@@ -28,22 +41,42 @@ const About = () => {
       <div className='flex flex-col md:flex-row text-sm mb-20'>
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
           <b>Quality Assurance: </b>
-          <p className='text-gray-600'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident recusandae iusto, tenetur eveniet aspernatur ipsum consequatur a nisi sunt atque molestias dolor nesciunt officiis dignissimos fugit temporibus excepturi quisquam ea!</p>
+          <p className='text-gray-600'>
+            We are committed to delivering high-quality products that undergo strict inspections to ensure customer satisfaction.
+          </p>
         </div>
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
           <b>Convenience: </b>
-          <p className='text-gray-600'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident recusandae iusto, tenetur eveniet aspernatur ipsum consequatur a nisi sunt atque molestias dolor nesciunt officiis dignissimos fugit temporibus excepturi quisquam ea!</p>
+          <p className='text-gray-600'>
+            Our services save you time and effort, providing maximum convenience in every transaction and shopping experience.
+          </p>
         </div>
         <div className='border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5'>
           <b>Exceptional Customer Service: </b>
-          <p className='text-gray-600'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident recusandae iusto, tenetur eveniet aspernatur ipsum consequatur a nisi sunt atque molestias dolor nesciunt officiis dignissimos fugit temporibus excepturi quisquam ea!</p>
+          <p className='text-gray-600'>
+            Our dedicated support team is always ready to listen and resolve any concerns to ensure the best customer experience.
+          </p>
         </div>
       </div>
 
-      <NewsLetterBox />
-      
-    </div>
-  )
-}
 
-export default About
+      {/* Our Location Section */}
+      <div className='text-xl py-4'>
+        <Title text1={'OUR'} text2={'LOCATIONS'} />
+      </div>
+
+      <div className='mb-20'>
+        <MapContainer center={positionHN} zoom={13} style={{ height: "400px", width: "100%" }}>
+          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <Marker position={positionHN}>
+            <Popup>Ng. 105 Bạch Mai/63 Ng. Đình Đông, Bạch Mai, Hai Bà Trưng, Hà Nội 100000, Việt Nam</Popup>
+          </Marker>
+        </MapContainer>
+      </div>
+
+      <NewsLetterBox />
+    </div>
+  );
+};
+
+export default About;

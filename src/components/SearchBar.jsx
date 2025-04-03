@@ -18,7 +18,7 @@ const SearchBar = () => {
     },[location]);
 
     return showSearch && visible ? (
-        <div className="border-b-gray-300 bg-gray-200 py-4 flex flex-col items-center relative">
+        <div className="border-b-gray-300 bg-gray-200 py-4 flex flex-col items-center relative transition-all duration-200">
             {/* Ô tìm kiếm */}
             <div className="flex items-center w-3/4 sm:w-1/2 px-4 py-2 rounded-full border border-gray-300 bg-white shadow-sm focus-within:ring-2 focus-within:ring-blue-400 transition-all">
                 <input
