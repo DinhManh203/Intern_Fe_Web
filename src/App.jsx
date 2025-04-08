@@ -16,6 +16,7 @@ import Verify from './pages/Verify'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import ChatBot from './components/ChatBot/ChatBot'
+import FacebookMsg from './components/Msg/FacebookMsg'
 
 const App = () => {
 
@@ -38,6 +39,7 @@ const App = () => {
         <Route path='/orders' element={<Orders />} />
         <Route path='/verify' element={<Verify />} />
       </Routes>
+      <FacebookMsg />
       <ChatBot setChatHistory={setChatHistory} />
       <Footer />
     </div>
