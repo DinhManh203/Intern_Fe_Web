@@ -10,7 +10,7 @@ import Instagram from "@mui/icons-material/Instagram";
 import "leaflet/dist/leaflet.css";
 
 const About = () => {
-  const currentPageUrl = window.location.href;
+  const currentPageUrl = 'https://intern-fe-web.vercel.app/';
   const positionHN = [21.0055, 105.8461];
 
   return (
