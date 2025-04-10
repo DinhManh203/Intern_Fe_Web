@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom'
-import axios, { AxiosHeaders } from "axios";
+import axios from "axios";
 
 export const ShopContext = createContext();
 
@@ -121,7 +121,7 @@ const ShopContextProvider = (props) => {
 
         try {
 
-            const response = await axios.get(backendUrl + '/api/product/list')
+            const response = await axios.get(backendUrl + '/api/product/list');
             if (response.data.success) {
                 setProducts(response.data.products)
             } else {
@@ -132,8 +132,12 @@ const ShopContextProvider = (props) => {
             console.log(error);
             toast.error(error.message);
         }
+        console.log("backendUrl: ", backendUrl);
 
     }
+    useEffect(() => {
+        getProductsData();
+    }, [])
 
     const getUserCart = async (token) => {
 
@@ -150,10 +154,6 @@ const ShopContextProvider = (props) => {
         }
 
     }
-
-    useEffect(() => {
-        getProductsData();
-    }, [])
 
     useEffect(() => {
         if (!token && localStorage.getItem('token')) {
